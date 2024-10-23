@@ -22,45 +22,306 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <i class="fa-brands fa-instagram"></i>
-    <a class="navbar-brand" href="#">Instagram</a>
-    <div class="ms-auto d-flex align-items-center">
-      <button class="btn btn-outline-success me-3" type="submit">create a new post</button>
-      <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-button">
-          <i class="fa-solid fa-gear"></i>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdown-button">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
+      <div class="container-fluid">
+        <i class="fa-brands fa-instagram"></i>
+        <a class="navbar-brand" href="#">Instagram</a>
+        <div class="ms-auto d-flex align-items-center">
+          <button
+            class="btn btn-outline-success me-3"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#createPostModal"
+          >
+            Create a new post
+          </button>
+          <div class="dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdownMenuButton"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-gear"></i>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Accessibility</a></li>
+              <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="modal fade"
+      id="createPostModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="createPostLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createPostLabel">Create a new post</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="postCaption" class="form-label">Caption:</label>
+              <textarea
+                class="form-control"
+                id="postCaption"
+                rows="3"
+                placeholder="Add the caption of your post here"
+              ></textarea>
+            </div>
+
+            <div class="d-flex justify-content-start">
+              <button type="button" class="btn btn-outline-secondary me-2">
+                <i class="fa-solid fa-camera fa-bounce"></i>
+              </button>
+              <button type="button" class="btn btn-outline-secondary">
+                <i class="fa-regular fa-images fa-bounce"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success">Post</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
 
-<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-      <i class="fa-solid fa-film"></i>
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-      <i class="fa-solid fa-calendar-days"></i>
-    </button>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
-</div>
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="home-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#detailView"
+          type="button"
+          role="tab"
+          aria-controls="detailView
+          aria-selected="true"
+        >
+          <i class="fa-solid fa-film"></i>
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="profile-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#gridView"
+          type="button"
+          role="tab"
+          aria-controls="gridView
+          aria-selected="false"
+        >
+          <i class="fa-solid fa-calendar-days"></i>
+        </button>
+      </li>
+    </ul>
 
+    <div class="tab-content">
+      <div id="gridView" class="tab-pane fade show active" role="tabpanel" aria-labelledby="grid-tab">
+        <div class="row g-2" style="margin-right: 2px; margin-left: 2px; display: flex; flex-wrap: wrap;">
+          <div class="col-4">
+            <img src="https://media.istockphoto.com/id/1232324930/vector/kid-programmer-learn-coding-on-computer-tablet-or-phone-child-create-code-or-program-of-game.jpg?s=612x612&w=0&k=20&c=oSiWKFT-eSyC5QjF4n1d3C5ijiI861bKrrD6AgUICkQ=" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2px solid black;" alt="Post Image">
+          </div>
+          <div class="col-4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiOfpG0bKFmvfhoQw7OeqZlVDVh8Ako3cPSQ&s" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2px solid black;" alt="Post Image">
+          </div>
+          <div class="col-4">
+            <img src="https://assets.zenn.com/strapi_assets/gaming_logo_aa95c89a4e.png" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2px solid black;" alt="Post Image">
+          </div>
+          <div class="col-4">
+            <img src="https://preview.redd.it/boring-video-games-era-v0-tk0fh53f491c1.jpg?width=640&crop=smart&auto=webp&s=0e96f1cb6050eebb3767068758fc50337cfd6c59" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2px solid black;" alt="Post Image">
+          </div>
+          <div class="col-4">
+            <img src="https://www.retrogaminghouse.com/cdn/shop/articles/Top_selling_video_game_consoles_in_history.jpg?v=1696678901" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2px solid black;" alt="Post Image">
+          </div>
+          <div class="col-4">
+            <img src="https://www.watchmojo.com/uploads/thumbs720/MP-10-Biggest-Open-World-Video-Game-Maps_I9W0D5-V1.webp" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2px solid black;" alt="Post Image">
+          </div>
+          <div class="col-4">
+            <img src="https://cdn11.bigcommerce.com/s-6334b/product_images/uploaded_images/b016b6ce-6190-4827-9055-66cae1409dd7.jpeg?t=1616494106&_ga=2.14082161.732077110.1616526474-1982676792.1616526474" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2
+            px solid black;" alt="Post Image">
+          </div>
+          <div class="col-4">
+            <img src="https://www.smashbros.com/assets_v2/img/top/hero05_en.jpg" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2
+            px solid black;" alt="Post Image">
+          </div>
+          <div class="col-4">
+            <img src="https://d2sbsqqdu2ofn4.cloudfront.net/media/images/Witcher_3_Best_Fantasy_Video_Game.max-950x950.jpg" 
+            style="width: 100%; height: 200px; object-fit: cover; border: 2
+            px solid rgb(0, 0, 0);" alt="Post Image">
+          </div>
+        </div>
+      </div>
+    
 
+    <div id="detailView" class="tab-pane fade" role="tabpanel" aria-labelledby="detail-tab">
+      <div class="card mx-auto" style="max-width: 540px">
+        <div class="card-header d-flex align-items-center">
+          <i class="fa-brands fa-html5 fa-2x me-2"></i>
+          <div class="user-info">
+            <h5 class="mb-0">HTML5</h5>
+            <p class="mb-0 text-muted">Rigoberto</p>
+          </div>
+          <div class="ms-auto">
+            <p>10/21/24</p>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <img
+            src="https://media.istockphoto.com/id/1232324930/vector/kid-programmer-learn-coding-on-computer-tablet-or-phone-child-create-code-or-program-of-game.jpg?s=612x612&w=0&k=20&c=oSiWKFT-eSyC5QjF4n1d3C5ijiI861bKrrD6AgUICkQ="
+            class="card-img-top"
+            alt="Landscape Image"
+          />
+          <div class="p-3">
+            <div class="d-flex justify-content-between mb-2">
+              <div>
+                <i class="fa-solid fa-heart me-2"></i>
+                <i class="fa-solid fa-comments me-2"></i>
+                <i class="fa-solid fa-paper-plane"></i>
+              </div>
+              <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <p class="mb-1">
+              Liked by <strong>4GeeksAcademy, html5, Web</strong> and
+              <strong>100,000 others</strong>
+            </p>
+            <p class="mb-0">
+              <strong>Unleash the enchantment of gaming!</strong> connect with
+              people around the world, to be able to enjoy the game at deeper
+              levels, experiences like never before, online gaming the first step
+              for a new whole adventure, what are you waiting to join?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card mx-auto" style="max-width: 540px">
+        <div class="card-header d-flex align-items-center">
+          <i class="fa-brands fa-html5 fa-2x me-2"></i>
+          <div class="user-info">
+            <h5 class="mb-0">HTML5</h5>
+            <p class="mb-0 text-muted">Rigoberto</p>
+          </div>
+          <div class="ms-auto">
+            <p>10/21/24</p>
+          </div>
+        </div>
+  
+        <div class="card-body p-0">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiOfpG0bKFmvfhoQw7OeqZlVDVh8Ako3cPSQ&s"
+            class="card-img-top"
+            alt="Landscape Image"
+          />
+          <div class="p-3">
+            <div class="d-flex justify-content-between mb-2">
+              <div>
+                <i class="fa-solid fa-heart me-2"></i>
+                <i class="fa-solid fa-comments me-2"></i>
+                <i class="fa-solid fa-paper-plane"></i>
+              </div>
+              <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <p class="mb-1">
+              Liked by <strong>4GeeksAcademy, html5, Web</strong> and
+              <strong>100,000 others</strong>
+            </p>
+            <p class="mb-0">
+              Leveling up, one game at a time, because progress is a journey made
+              of countless small victories and lessons learned along the way. It’s
+              not just about getting to the final boss or unlocking
+              achievements—it’s about those late-night gaming sessions where you
+              push through challenges and discover new strategies. The grind may
+              be tough, but the satisfaction of seeing hard work pay off makes
+              every moment worth it. What’s the game that keeps you coming back
+              for more?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card mx-auto" style="max-width: 540px">
+        <div class="card-header d-flex align-items-center">
+          <i class="fa-brands fa-html5 fa-2x me-2"></i>
+          <div class="user-info">
+            <h5 class="mb-0">HTML5</h5>
+            <p class="mb-0 text-muted">Rigoberto</p>
+          </div>
+          <div class="ms-auto">
+            <p>10/21/24</p>
+          </div>
+        </div>
+  
+        <div class="card-body p-0">
+          <img
+            src="https://assets.zenn.com/strapi_assets/gaming_logo_aa95c89a4e.png"
+            class="card-img-top"
+            alt="Landscape Image"
+          />
+          <div class="p-3">
+            <div class="d-flex justify-content-between mb-2">
+              <div>
+                <i class="fa-solid fa-heart me-2"></i>
+                <i class="fa-solid fa-comments me-2"></i>
+                <i class="fa-solid fa-paper-plane"></i>
+              </div>
+              <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <p class="mb-1">
+              Liked by <strong>4GeeksAcademy, html5, Web</strong> and
+              <strong>100,000 others</strong>
+            </p>
+            <p class="mb-0">
+              When reality becomes a little too mundane, I find my escape through
+              gaming, where possibilities are limitless and every world is a new
+              adventure waiting to be explored. It’s not just about defeating
+              enemies or collecting loot—it’s about the stories we get to live,
+              the characters we grow to love, and the immersive experiences that
+              make us feel like we’re part of something greater. For some, it’s
+              just a hobby, but for others, it’s a way to connect, to dream, and
+              to be a hero in worlds that go beyond the ordinary
+            </p>
+          </div>
+        </div>
+      </div>
+    
     <div class="card mx-auto" style="max-width: 540px">
       <div class="card-header d-flex align-items-center">
         <i class="fa-brands fa-html5 fa-2x me-2"></i>
@@ -69,13 +330,13 @@
           <p class="mb-0 text-muted">Rigoberto</p>
         </div>
         <div class="ms-auto">
-          <i class="fa-solid fa-ellipsis-vertical"></i>
+          <p>10/21/24</p>
         </div>
       </div>
 
       <div class="card-body p-0">
         <img
-          src="https://media.istockphoto.com/id/1232324930/vector/kid-programmer-learn-coding-on-computer-tablet-or-phone-child-create-code-or-program-of-game.jpg?s=612x612&w=0&k=20&c=oSiWKFT-eSyC5QjF4n1d3C5ijiI861bKrrD6AgUICkQ="
+          src="https://preview.redd.it/boring-video-games-era-v0-tk0fh53f491c1.jpg?width=640&crop=smart&auto=webp&s=0e96f1cb6050eebb3767068758fc50337cfd6c59"
           class="card-img-top"
           alt="Landscape Image"
         />
@@ -93,13 +354,242 @@
             <strong>100,000 others</strong>
           </p>
           <p class="mb-0">
-            <strong>Unleash the enchantment of gaming!</strong> connect with
-            people around the world, to be able to enjoy the game at deeper
-            levels, experiences like never before, online gaming the first step
-            for a new whole adventure, what are you waiting to join?
+            “In the game of life, knowing how to master the controls is more
+            important than achieving the high score. It’s about patience,
+            resilience, and constantly adapting to changing circumstances. Each
+            round, whether I win or lose, teaches me something new—not just
+            about the game, but about myself. It’s not only the victories that
+            define us but the persistence to keep playing, to keep learning, and
+            to keep striving for more. Because sometimes, the real achievement
+            is finding the courage to keep trying.
           </p>
         </div>
       </div>
     </div>
+    <div class="card mx-auto" style="max-width: 540px">
+      <div class="card-header d-flex align-items-center">
+        <i class="fa-brands fa-html5 fa-2x me-2"></i>
+        <div class="user-info">
+          <h5 class="mb-0">HTML5</h5>
+          <p class="mb-0 text-muted">Rigoberto</p>
+        </div>
+        <div class="ms-auto">
+          <p>10/21/24</p>
+        </div>
+      </div>
+
+      <div class="card-body p-0">
+        <img
+          src="https://www.retrogaminghouse.com/cdn/shop/articles/Top_selling_video_game_consoles_in_history.jpg?v=1696678901"
+          class="card-img-top"
+          alt="Landscape Image"
+        />
+        <div class="p-3">
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <i class="fa-solid fa-heart me-2"></i>
+              <i class="fa-solid fa-comments me-2"></i>
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <i class="fa-solid fa-floppy-disk"></i>
+          </div>
+          <p class="mb-1">
+            Liked by <strong>4GeeksAcademy, html5, Web</strong> and
+            <strong>100,000 others</strong>
+          </p>
+          <p class="mb-0">
+            Respawn, re-strategize, and reclaim victory, no matter how many
+            times I fall. There’s something about facing tough bosses and
+            challenging levels that teaches you the art of perseverance. Every
+            ‘game over’ is just another opportunity to come back with a new
+            approach, a stronger mindset, and a fresh determination. The best
+            players aren’t the ones who never lose; they’re the ones who never
+            give up. Because in the end, it’s not about avoiding failure, but
+            about learning how to rise from it.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card mx-auto" style="max-width: 540px">
+      <div class="card-header d-flex align-items-center">
+        <i class="fa-brands fa-html5 fa-2x me-2"></i>
+        <div class="user-info">
+          <h5 class="mb-0">HTML5</h5>
+          <p class="mb-0 text-muted">Rigoberto</p>
+        </div>
+        <div class="ms-auto">
+          <p>10/21/24</p>
+        </div>
+      </div>
+
+      <div class="card-body p-0">
+        <img
+          src="https://www.watchmojo.com/uploads/thumbs720/MP-10-Biggest-Open-World-Video-Game-Maps_I9W0D5-V1.webp"
+          class="card-img-top"
+          alt="Landscape Image"
+        />
+        <div class="p-3">
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <i class="fa-solid fa-heart me-2"></i>
+              <i class="fa-solid fa-comments me-2"></i>
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <i class="fa-solid fa-floppy-disk"></i>
+          </div>
+          <p class="mb-1">
+            Liked by <strong>4GeeksAcademy, html5, Web</strong> and
+            <strong>100,000 others</strong>
+          </p>
+          <p class="mb-0">
+            The only lag that belongs in my life is on the screen. When I’m
+            diving deep into a game, it’s more than just passing time—it’s about
+            pushing limits, both in the game and in myself. Each level brings
+            new hurdles, every match presents new rivals, and each time I power
+            through, it feels like a personal victory. It’s not about being the
+            best; it’s about constantly striving to become better and overcoming
+            whatever obstacles stand in the way.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card mx-auto" style="max-width: 540px">
+      <div class="card-header d-flex align-items-center">
+        <i class="fa-brands fa-html5 fa-2x me-2"></i>
+        <div class="user-info">
+          <h5 class="mb-0">HTML5</h5>
+          <p class="mb-0 text-muted">Rigoberto</p>
+        </div>
+        <div class="ms-auto">
+          <p>10/21/24</p>
+        </div>
+      </div>
+
+      <div class="card-body p-0">
+        <img
+          src="https://cdn11.bigcommerce.com/s-6334b/product_images/uploaded_images/b016b6ce-6190-4827-9055-66cae1409dd7.jpeg?t=1616494106&_ga=2.14082161.732077110.1616526474-1982676792.1616526474"
+          class="card-img-top"
+          alt="Landscape Image"
+        />
+        <div class="p-3">
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <i class="fa-solid fa-heart me-2"></i>
+              <i class="fa-solid fa-comments me-2"></i>
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <i class="fa-solid fa-floppy-disk"></i>
+          </div>
+          <p class="mb-1">
+            Liked by <strong>4GeeksAcademy, html5, Web</strong> and
+            <strong>100,000 others</strong>
+          </p>
+          <p class="mb-0">
+            “Some people play games for fun, others play to win, but I play for
+            the story and the adventure that unfolds with each click of a
+            button. Gaming isn’t just entertainment; it’s a journey into new
+            worlds where you can be anyone, do anything, and see places beyond
+            your wildest imagination. It’s where strategy meets creativity,
+            where every choice leads to a different outcome, and where players
+            find themselves at the heart of epic quests. It’s not just a
+            pastime—it’s an endless realm of possibilities.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card mx-auto" style="max-width: 540px">
+      <div class="card-header d-flex align-items-center">
+        <i class="fa-brands fa-html5 fa-2x me-2"></i>
+        <div class="user-info">
+          <h5 class="mb-0">HTML5</h5>
+          <p class="mb-0 text-muted">Rigoberto</p>
+        </div>
+        <div class="ms-auto">
+          <p>10/21/24</p>
+        </div>
+      </div>
+
+      <div class="card-body p-0">
+        <img
+          src="https://www.smashbros.com/assets_v2/img/top/hero05_en.jpg"
+          class="card-img-top"
+          alt="Landscape Image"
+        />
+        <div class="p-3">
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <i class="fa-solid fa-heart me-2"></i>
+              <i class="fa-solid fa-comments me-2"></i>
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <i class="fa-solid fa-floppy-disk"></i>
+          </div>
+          <p class="mb-1">
+            Liked by <strong>4GeeksAcademy, html5, Web</strong> and
+            <strong>100,000 others</strong>
+          </p>
+          <p class="mb-0">
+            With the headset on and the controller in hand, reality starts to
+            fade away. In the virtual world, there’s no limit to what you can
+            achieve, and no challenge too great to overcome. It’s not just about
+            shooting for the win—it’s about the process, the strategy, and the
+            rush of adrenaline as you outsmart your opponents. It’s about those
+            moments of teamwork when everything falls into place and you feel
+            like you’re unstoppable. For those who game, it’s not just a hobby;
+            it’s a whole different way of seeing the world.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card mx-auto" style="max-width: 540px">
+      <div class="card-header d-flex align-items-center">
+        <i class="fa-brands fa-html5 fa-2x me-2"></i>
+        <div class="user-info">
+          <h5 class="mb-0">HTML5</h5>
+          <p class="mb-0 text-muted">Rigoberto</p>
+        </div>
+        <div class="ms-auto">
+          <p>10/21/24</p>
+        </div>
+      </div>
+
+      <div class="card-body p-0">
+        <img
+          src="https://d2sbsqqdu2ofn4.cloudfront.net/media/images/Witcher_3_Best_Fantasy_Video_Game.max-950x950.jpg"
+          class="card-img-top"
+          alt="Landscape Image"
+        />
+        <div class="p-3">
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <i class="fa-solid fa-heart me-2"></i>
+              <i class="fa-solid fa-comments me-2"></i>
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <i class="fa-solid fa-floppy-disk"></i>
+          </div>
+          <p class="mb-1">
+            Liked by <strong>4GeeksAcademy, html5, Web</strong> and
+            <strong>100,000 others</strong>
+          </p>
+          <p class="mb-0">
+            Game over isn’t the end; it’s the beginning of a new strategy, a new
+            approach, and another shot at victory. Each defeat is just a lesson
+            disguised as a setback, teaching me how to improve, adjust, and come
+            back even stronger. The beauty of gaming is that every time you
+            fall, you can respawn, reassess, and start again. The real victory
+            doesn’t come from never failing but from always finding the
+            determination to press continue and keep striving for greatness
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
